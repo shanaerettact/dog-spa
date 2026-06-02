@@ -31,3 +31,9 @@
   // 綁定所有具有 .theme-toggle 的按鈕
   toggles.forEach(btn => btn.addEventListener('click', toggle));
 })();
+  // AOS will be initialized on window load if available
+  window.addEventListener('load', () => {
+    if (window.AOS && typeof AOS.init === 'function') {
+      AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
+    }
+  });

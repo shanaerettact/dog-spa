@@ -11,7 +11,9 @@
         body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
         .text-gradient { background: linear-gradient(90deg, #63e2b7, #52cfa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="assets/theme.css">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
     <script src="assets/theme.js" defer></script>
     <style>
         .parallax-bg {
@@ -69,7 +71,7 @@
         <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-[#f3fbf9] -skew-x-6 transform translate-x-20 hidden lg:block"></div>
         <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-24 flex flex-col lg:flex-row items-center">
             <!-- Hero 左側內容：標題、描述、按鈕 -->
-            <div class="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left">
+            <div class="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left" data-aos="fade-right" data-aos-delay="120">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 leading-tight mb-6">
                     給毛孩最好最深層的<br><span class="text-[#63e2b7]">療癒時光</span>
                 </h1>
@@ -82,9 +84,9 @@
                 </div>
             </div>
             <!-- 輪播區塊 -->
-            <div class="lg:w-1/2 relative">
+            <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-delay="200">
                 <!-- 輪播容器 (保持 4:3 比例) -->
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-2 aspect-[4/3] hero-carousel-card">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-2 aspect-[4/3] hero-carousel-card" data-aos="zoom-in" data-aos-delay="300">
                     <!-- 圖片群組：增加至 5 張 -->
                     <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
                         <!-- 1. 專業洗澡 (微氣泡浴) -->
@@ -110,7 +112,7 @@
                 </div>
 
                 <!-- 信任標章卡片 (保持原樣) -->
-                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl hidden sm:block z-20 hero-trust-card">
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl hidden sm:block z-20 hero-trust-card" data-aos="fade-up" data-aos-delay="420">
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 bg-[#63e2b7] rounded-full flex items-center justify-center text-white">
                             <i class="fa-solid fa-heart"></i>

@@ -11,7 +11,34 @@
         body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
         .text-gradient { background: linear-gradient(90deg, #63e2b7, #52cfa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="assets/theme.css">
+    <style>
+        #map { 
+            height: 500px; 
+            border-radius: 1rem; 
+            margin-top: 0 !important; 
+            margin-bottom: 0 !important; 
+            z-index: 1;
+        }
+        .map-container { 
+            background-color: var(--card) !important; 
+            border-radius: 1.5rem; 
+            overflow: hidden; 
+            height: 520px;
+        }
+        /* Leaflet 地圖容器修復 */
+        .leaflet-container { 
+            background: #fff; 
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        html.dark .leaflet-container { 
+            background: #0b1220;
+        }
+    </style>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="assets/theme.js" defer></script>
 </head>
 <body class="bg-[#fcfaf8] text-stone-800">
@@ -59,7 +86,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative py-20 bg-gradient-to-b from-white to-[#f9fbfa] overflow-hidden">
+    <section class="relative py-20 bg-gradient-to-b from-white to-[#f9fbfa] overflow-hidden" data-aos="fade-up">
         <div class="absolute top-0 right-0 w-96 h-96 bg-[#63e2b7]/10 rounded-full blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
@@ -74,7 +101,7 @@
     </section>
 
     <!-- Brand Story Section -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <div>
@@ -103,7 +130,7 @@
 
             <!-- Core Values -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition">
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="80">
                     <div class="w-14 h-14 bg-[#63e2b7] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">
                         <i class="fa-solid fa-heart"></i>
                     </div>
@@ -111,7 +138,7 @@
                     <p class="text-stone-600">我們把每隻毛孩都當作自己的孩子，用最溫暖的態度對待牠們</p>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition">
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="160">
                     <div class="w-14 h-14 bg-[#52cfa5] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">
                         <i class="fa-solid fa-certificate"></i>
                     </div>
@@ -119,7 +146,7 @@
                     <p class="text-stone-600">所有美容師具備 KCT 國際執照，持續進修最新寵物護理技術</p>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition">
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#f3fbf9] to-white border border-[#63e2b7]/20 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="240">
                     <div class="w-14 h-14 bg-[#63e2b7] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">
                         <i class="fa-solid fa-leaf"></i>
                     </div>
@@ -250,6 +277,62 @@
         </div>
     </section>
 
+    <!-- Location Map Section -->
+    <section class="py-24 bg-white" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">交通位置</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-stone-900">蒞臨 Pet Spa</h3>
+                    <div class="space-y-4 text-stone-600">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-[#63e2b7] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900">地址</p>
+                                <p>台中市南區工業區 123 號</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-[#63e2b7] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-clock text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900">營業時間</p>
+                                <p>週一至週日 10:00 - 20:00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-[#63e2b7] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-phone text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900">預約電話</p>
+                                <p>04-1234567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-[#63e2b7] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-envelope text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900">電子郵件</p>
+                                <p>info@petspa.tw</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-block mt-8 bg-[#63e2b7] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#52cfa5] transition">
+                        立即預約 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="map-container shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+                    <div id="map" class="rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-white border-t border-stone-100 py-16">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -311,6 +394,40 @@
         });
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize Leaflet Map when window is fully loaded
+        window.addEventListener('load', () => {
+            if (document.getElementById('map') && typeof L !== 'undefined') {
+                // 台中市南區座標
+                const petSpaLocation = [24.1472, 120.6742];
+                
+                // 初始化地圖
+                const map = L.map('map', { 
+                    attributionControl: true,
+                    zoomControl: true
+                }).setView(petSpaLocation, 15);
+                
+                // 添加瓦片層
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(map);
+                
+                // 添加標記
+                const marker = L.marker(petSpaLocation).addTo(map);
+                
+                // 添加彈出框
+                marker.bindPopup(
+                    '<div style="font-family: Noto Sans TC, sans-serif; padding: 4px;">' +
+                    '<h4 style="margin: 0 0 8px 0; font-weight: bold; color: #0f1724; font-size: 14px;">Pet Spa & Beauty</h4>' +
+                    '<p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px;">台中市南區工業區 123 號</p>' +
+                    '<p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px;">週一至週日 10:00 - 20:00</p>' +
+                    '<p style="margin: 0; color: #6b7280; font-size: 12px;">04-1234567</p>' +
+                    '</div>',
+                    { maxWidth: 250 }
+                ).openPopup();
+            }
         });
     </script>
 </body>
