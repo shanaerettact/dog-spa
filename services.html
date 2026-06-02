@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA服務 | Pet Spa & Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
+        .text-gradient { background: linear-gradient(90deg, #63e2b7, #52cfa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-8px); }
+    </style>
+</head>
+<body class="bg-[#fcfaf8] text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html"><img src="logo.png" alt="Logo" class="w-[65px] hover:opacity-80 transition" /></a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="index.html" class="text-stone-600 hover:text-[#63e2b7] transition">首頁</a>
+                    <a href="about.html" class="text-stone-600 hover:text-[#63e2b7] transition">關於我們</a>
+                    <a href="services.html" class="text-[#63e2b7] font-semibold">SPA服務</a>
+                    <a href="index.html#pricing" class="text-stone-600 hover:text-[#63e2b7] transition">價目表</a>
+                    <a href="gallery.html" class="text-stone-600 hover:text-[#63e2b7] transition">作品展示</a>
+                    <a href="#" class="bg-[#63e2b7] text-white px-6 py-2 rounded-full hover:bg-[#52cfa5] transition shadow-lg shadow-[#63e2b7]/30">立即預約</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="p-2 text-stone-600"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版導航選單 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-stone-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">首頁</a>
+                <a href="about.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">關於我們</a>
+                <a href="services.html" class="block py-2 text-[#63e2b7] hover:text-[#63e2b7] transition font-medium">SPA服務</a>
+                <a href="index.html#pricing" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">價目表</a>
+                <a href="gallery.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">作品展示</a>
+                <a href="#" class="block py-2 bg-[#63e2b7] text-white px-4 rounded-full hover:bg-[#52cfa5] transition text-center font-medium">立即預約</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-b from-white to-[#f9fbfa] overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-[#63e2b7]/10 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold text-stone-900 mb-6">
+                    專業 <span class="text-gradient">SPA療程</span>
+                </h1>
+                <p class="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                    結合國際先進技術與天然植萃成分，為毛孩打造全方位的身心療癒體驗
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Services Grid -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">核心療程</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Service 1: Micro Bubble Spa -->
+                <div class="service-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-stone-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="relative h-80 md:h-auto overflow-hidden">
+                            <img src="5.avif" alt="微氣泡浴" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold mb-3 text-stone-900">微氣泡 SPA</h3>
+                            <div class="text-[#63e2b7] text-2xl font-bold mb-4">$1,200 up</div>
+                            <p class="text-stone-600 mb-6 leading-relaxed">
+                                日本進口微氣泡設備，產生細微氣泡深層清潔毛孔，去除老廢角質和油脂。適合所有毛孩，特別推薦油性毛皮。
+                            </p>
+                            <ul class="space-y-2 text-stone-600 mb-6">
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>深層毛孔清潔</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>舒緩皮膚不適</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>提亮毛色光澤</li>
+                            </ul>
+                            <button class="bg-[#63e2b7] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#52cfa5] transition w-full">
+                                了解更多
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Carbon Spa -->
+                <div class="service-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-stone-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="relative h-80 md:h-auto overflow-hidden">
+                            <img src="6.avif" alt="碳酸泉浴" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold mb-3 text-stone-900">碳酸泉 SPA</h3>
+                            <div class="text-[#63e2b7] text-2xl font-bold mb-4">$1,500 up</div>
+                            <p class="text-stone-600 mb-6 leading-relaxed">
+                                日本溫泉區秘密療法，碳酸泉浴能促進血液循環，舒緩肌肉疲勞。適合高齡犬貓及運動後的毛孩。
+                            </p>
+                            <ul class="space-y-2 text-stone-600 mb-6">
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>促進血液循環</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>舒緩關節痠痛</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>放鬆身心</li>
+                            </ul>
+                            <button class="bg-[#63e2b7] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#52cfa5] transition w-full">
+                                了解更多
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Aroma Therapy -->
+                <div class="service-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-stone-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="relative h-80 md:h-auto overflow-hidden">
+                            <img src="7.avif" alt="芳療精油浴" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold mb-3 text-stone-900">精油芳療浴</h3>
+                            <div class="text-[#63e2b7] text-2xl font-bold mb-4">$1,100 up</div>
+                            <p class="text-stone-600 mb-6 leading-relaxed">
+                                精選法國、義大利進口純天然精油，根據毛孩膚質和情緒客製配方。舒緩焦慮，呵護敏感肌。
+                            </p>
+                            <ul class="space-y-2 text-stone-600 mb-6">
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>天然植萃精油</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>舒緩焦慮情緒</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>滋養毛皮</li>
+                            </ul>
+                            <button class="bg-[#63e2b7] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#52cfa5] transition w-full">
+                                了解更多
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Styling -->
+                <div class="service-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-stone-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="relative h-80 md:h-auto overflow-hidden">
+                            <img src="8.avif" alt="創意造型修剪" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold mb-3 text-stone-900">創意造型修剪</h3>
+                            <div class="text-[#63e2b7] text-2xl font-bold mb-4">$800 up</div>
+                            <p class="text-stone-600 mb-6 leading-relaxed">
+                                由資深美容師打造個性化造型，從日系萌寵到韓系時尚，讓毛孩閃閃發光。包含洗澡、修剪、吹整全套服務。
+                            </p>
+                            <ul class="space-y-2 text-stone-600 mb-6">
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>客製化設計</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>專業手法修剪</li>
+                                <li><i class="fa-solid fa-check text-[#52cfa5] mr-2"></i>低溫吹整護理</li>
+                            </ul>
+                            <button class="bg-[#63e2b7] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#52cfa5] transition w-full">
+                                了解更多
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-on Services -->
+    <section class="py-24 bg-gradient-to-r from-[#f3fbf9] to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">增值服務</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-white rounded-2xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <i class="fa-solid fa-scissors text-[#63e2b7] text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">指甲修剪</h3>
+                    <p class="text-stone-600 text-sm mb-4">專業修剪和磨平，$150起</p>
+                    <div class="text-[#52cfa5] font-semibold">+ 加購</div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <i class="fa-solid fa-tooth text-[#63e2b7] text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">潔牙護理</h3>
+                    <p class="text-stone-600 text-sm mb-4">去除齒垢，保護牙周健康，$200起</p>
+                    <div class="text-[#52cfa5] font-semibold">+ 加購</div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <i class="fa-solid fa-heart text-[#63e2b7] text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">染毛服務</h3>
+                    <p class="text-stone-600 text-sm mb-4">寵物安全染毛，展現個性，$500起</p>
+                    <div class="text-[#52cfa5] font-semibold">+ 加購</div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <i class="fa-solid fa-face-smile text-[#63e2b7] text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">臉部清潔</h3>
+                    <p class="text-stone-600 text-sm mb-4">使用專業用品清潔淚痕，$250起</p>
+                    <div class="text-[#52cfa5] font-semibold">+ 加購</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pet Types Service -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">多元寵物照護</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#63e2b7]/20 to-[#52cfa5]/20 flex items-center justify-center text-6xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-dog text-[#63e2b7]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">犬隻美容</h3>
+                    <p class="text-stone-600 mb-4">
+                        從小型犬到大型犬，擁有資深美容師專攻各犬種特色泳姿、毛質修護
+                    </p>
+                    <div class="flex justify-center space-x-4 text-sm text-[#63e2b7] font-semibold">
+                        <span>小型犬 |</span>
+                        <span>中型犬 |</span>
+                        <span>大型犬</span>
+                    </div>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#63e2b7]/20 to-[#52cfa5]/20 flex items-center justify-center text-6xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-cat text-[#63e2b7]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">貓咪舒壓</h3>
+                    <p class="text-stone-600 mb-4">
+                        特聘貓咪行為專家，深諳貓咪脾氣，打造安心舒適的美容環境
+                    </p>
+                    <div class="flex justify-center space-x-4 text-sm text-[#63e2b7] font-semibold">
+                        <span>短毛貓 |</span>
+                        <span>長毛貓 |</span>
+                        <span>特殊貓</span>
+                    </div>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#63e2b7]/20 to-[#52cfa5]/20 flex items-center justify-center text-6xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-paw text-[#63e2b7]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">特殊寵物</h3>
+                    <p class="text-stone-600 mb-4">
+                        兔子、鼠類等小動物也能享受溫柔照護，客製化美容方案
+                    </p>
+                    <div class="flex justify-center space-x-4 text-sm text-[#63e2b7] font-semibold">
+                        <span>兔子 |</span>
+                        <span>鼠類 |</span>
+                        <span>其他</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Process -->
+    <section class="py-24 bg-gradient-to-b from-stone-900 to-stone-800 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#63e2b7]/5 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-16">預約流程</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center relative">
+                    <div class="w-14 h-14 bg-[#63e2b7] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mb-3">選擇服務</h3>
+                    <p class="text-stone-300">挑選適合毛孩的療程方案</p>
+                    <div class="hidden md:block absolute top-14 left-1/2 w-1/2 h-1 bg-[#63e2b7]/30" style="transform: translateX(0);"></div>
+                </div>
+
+                <div class="text-center relative">
+                    <div class="w-14 h-14 bg-[#63e2b7] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mb-3">填寫資料</h3>
+                    <p class="text-stone-300">提供毛孩健康和偏好資訊</p>
+                    <div class="hidden md:block absolute top-14 left-1/2 w-1/2 h-1 bg-[#63e2b7]/30" style="transform: translateX(0);"></div>
+                </div>
+
+                <div class="text-center relative">
+                    <div class="w-14 h-14 bg-[#63e2b7] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mb-3">確認時間</h3>
+                    <p class="text-stone-300">選擇合適的預約日期與時間</p>
+                    <div class="hidden md:block absolute top-14 left-1/2 w-1/2 h-1 bg-[#63e2b7]/30" style="transform: translateX(0);"></div>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-[#63e2b7] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">4</div>
+                    <h3 class="text-xl font-bold mb-3">享受療程</h3>
+                    <p class="text-stone-300">帶毛孩來享受專業的 SPA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-[#f3fbf9]">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-stone-900">準備好為毛孩預約嗎？</h2>
+            <p class="text-stone-600 mb-8 text-lg">我們的團隊隨時準備為您的寶貝提供最優質的服務</p>
+            <a href="#" class="inline-block bg-[#63e2b7] text-white px-8 py-4 rounded-full font-bold hover:bg-[#52cfa5] transition shadow-lg shadow-[#63e2b7]/30">
+                線上預約 <i class="fa-solid fa-calendar ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <img src="logo.png" class="w-20 mb-6">
+                <p class="text-stone-500 max-w-xs mb-6">給毛孩最溫暖的擁抱，打造最專業的 SPA 空間。我們用心，讓愛延續。</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/HSTPEMKPET/" target="_blank" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-line text-lg"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">服務據點</h4>
+                <p class="text-stone-500 text-sm leading-relaxed">台中市南區 123 號<br>週一至週日 10:00 - 20:00<br>預約電話：04-1234567</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">快速連結</h4>
+                <ul class="text-stone-500 text-sm space-y-3">
+                    <li><a href="about.html" class="hover:text-[#63e2b7] transition">關於我們</a></li>
+                    <li><a href="services.html" class="hover:text-[#63e2b7] transition">SPA服務</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#63e2b7] transition">作品展示</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-stone-100 text-center text-stone-400 text-xs">
+            © 2026 PET SPA Premium Services. Design for your love.
+        </div>
+    </footer>
+
+    <div id="scrollTopBtn" class="fixed bottom-6 right-6 z-50 hidden flex items-center justify-center w-14 h-14 rounded-full bg-[#63e2b7] text-white shadow-2xl shadow-[#63e2b7]/25 hover:bg-[#52cfa5] transition duration-300 cursor-pointer" title="回頁首">
+        <i class="fa-solid fa-arrow-up text-xl leading-none"></i>
+    </div>
+
+    <script>
+        // 漢堡選單切換功能
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 點擊菜單項後關閉菜單
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 240) {
+                scrollTopBtn.classList.remove('hidden');
+            } else {
+                scrollTopBtn.classList.add('hidden');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

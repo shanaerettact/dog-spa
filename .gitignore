@@ -1,0 +1,23 @@
+# 作業系統
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 分佈文件
+dist/
+build/
+
+# 環境
+.env
+.env.local

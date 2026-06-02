@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 | Pet Spa & Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
+        .text-gradient { background: linear-gradient(90deg, #63e2b7, #52cfa5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gallery-item { transition: all 0.3s ease; }
+        .gallery-item:hover { transform: scale(1.05); }
+        .gallery-item img { aspect-ratio: 1; object-fit: cover; }
+    </style>
+</head>
+<body class="bg-[#fcfaf8] text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html"><img src="logo.png" alt="Logo" class="w-[65px] hover:opacity-80 transition" /></a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="index.html" class="text-stone-600 hover:text-[#63e2b7] transition">首頁</a>
+                    <a href="about.html" class="text-stone-600 hover:text-[#63e2b7] transition">關於我們</a>
+                    <a href="services.html" class="text-stone-600 hover:text-[#63e2b7] transition">SPA服務</a>
+                    <a href="index.html#pricing" class="text-stone-600 hover:text-[#63e2b7] transition">價目表</a>
+                    <a href="gallery.html" class="text-[#63e2b7] font-semibold">作品展示</a>
+                    <a href="#" class="bg-[#63e2b7] text-white px-6 py-2 rounded-full hover:bg-[#52cfa5] transition shadow-lg shadow-[#63e2b7]/30">立即預約</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="p-2 text-stone-600"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版導航選單 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-stone-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">首頁</a>
+                <a href="about.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">關於我們</a>
+                <a href="services.html" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">SPA服務</a>
+                <a href="index.html#pricing" class="block py-2 text-stone-600 hover:text-[#63e2b7] transition font-medium">價目表</a>
+                <a href="gallery.html" class="block py-2 text-[#63e2b7] hover:text-[#63e2b7] transition font-medium">作品展示</a>
+                <a href="#" class="block py-2 bg-[#63e2b7] text-white px-4 rounded-full hover:bg-[#52cfa5] transition text-center font-medium">立即預約</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-b from-white to-[#f9fbfa] overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#63e2b7]/10 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold text-stone-900 mb-6">
+                    毛孩的 <span class="text-gradient">美麗時刻</span>
+                </h1>
+                <p class="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                    每一張照片都是一個故事，記錄毛孩蛻變的瞬間和牠們的燦爛笑容
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="py-8 bg-white sticky top-20 z-40 border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <button class="filter-btn px-6 py-2 rounded-full font-semibold bg-[#63e2b7] text-white transition hover:bg-[#52cfa5]" data-filter="all">
+                    全部作品
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-semibold bg-stone-100 text-stone-700 hover:bg-[#63e2b7] hover:text-white transition" data-filter="dog">
+                    <i class="fa-solid fa-dog mr-2"></i>犬隻造型
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-semibold bg-stone-100 text-stone-700 hover:bg-[#63e2b7] hover:text-white transition" data-filter="cat">
+                    <i class="fa-solid fa-cat mr-2"></i>貓咪美容
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-semibold bg-stone-100 text-stone-700 hover:bg-[#63e2b7] hover:text-white transition" data-filter="special">
+                    <i class="fa-solid fa-spa mr-2"></i>SPA療程
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Item 1 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="dog">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="9.avif" alt="貴賓犬蓬鬆造型" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">貴賓犬蓬鬆造型</h3>
+                            <p class="text-sm text-stone-200">專業修剪 + 低溫吹整</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">犬隻造型</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="cat">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="10.avif" alt="貓咪SPA療程" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">貓咪舒壓 SPA</h3>
+                            <p class="text-sm text-stone-200">精油芳療 + 溫柔護理</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">貓咪美容</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="special">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="11.avif" alt="微氣泡SPA療程" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">微氣泡深層療程</h3>
+                            <p class="text-sm text-stone-200">毛孔深層淨化 + 保濕護理</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">SPA療程</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="dog">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="5.avif" alt="柯基短毛造型" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">柯基俏皮造型</h3>
+                            <p class="text-sm text-stone-200">清爽修剪 + 造型設計</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">犬隻造型</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="cat">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="6.avif" alt="磨毛貓療癒美容" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">長毛貓專業梳理</h3>
+                            <p class="text-sm text-stone-200">除毛 + 護毛精油浴</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">貓咪美容</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="special">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="7.avif" alt="碳酸泉SPA療程" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">碳酸泉舒壓療法</h3>
+                            <p class="text-sm text-stone-200">促進循環 + 放鬆身心</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">SPA療程</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="dog">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="8.avif" alt="大型犬專業造型" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">黃金獵犬蛻變</h3>
+                            <p class="text-sm text-stone-200">全身造型 + 深層護理</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">犬隻造型</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="cat">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="2.avif" alt="短毛貓清爽洗澡" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">英短美容護理</h3>
+                            <p class="text-sm text-stone-200">溫和洗澡 + 精油護膚</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">貓咪美容</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group relative" data-category="special">
+                    <div class="relative overflow-hidden rounded-2xl h-80">
+                        <img src="3.avif" alt="高齡犬舒適療程" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-end justify-end p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">高齡貨幣溫柔療程</h3>
+                            <p class="text-sm text-stone-200">舒緩關節 + 放鬆護理</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-[#63e2b7]">SPA療程</span>
+                            <div class="flex space-x-2">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-16">
+                <button class="px-8 py-4 bg-stone-100 text-stone-800 rounded-full font-bold hover:bg-[#63e2b7] hover:text-white transition">
+                    載入更多作品 <i class="fa-solid fa-arrow-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-24 bg-gradient-to-r from-[#f3fbf9] to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">家長好評</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <div class="flex space-x-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-stone-600 mb-4 leading-relaxed">「我的法鬥在 Pet Spa 做完SPA後，皮膚狀況改善了很多，毛色也變得超柔順！美容師很溫柔，我的寶寶每次都很開心。」</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-[#63e2b7] rounded-full flex items-center justify-center text-white font-bold">
+                            王
+                        </div>
+                        <div>
+                            <p class="font-bold">王家主人</p>
+                            <p class="text-sm text-stone-500">2026 年客戶</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <div class="flex space-x-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-stone-600 mb-4 leading-relaxed">「貓咪平時很怕洗澡，但在 Pet Spa 做SPA完全沒有壓力。Emma 姐姐很專業，我的貓現在主動要來呢！」</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-[#63e2b7] rounded-full flex items-center justify-center text-white font-bold">
+                            李
+                        </div>
+                        <div>
+                            <p class="font-bold">李女士</p>
+                            <p class="text-sm text-stone-500">2026 年客戶</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border-2 border-[#63e2b7]/20 hover:border-[#63e2b7] transition">
+                    <div class="flex space-x-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-stone-600 mb-4 leading-relaxed">「碳酸泉SPA真的超神奇，我的老毛孩關節問題改善了很多。服務環境溫暖舒適，全方位照顧毛孩。強烈推薦！」</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-[#63e2b7] rounded-full flex items-center justify-center text-white font-bold">
+                            陳
+                        </div>
+                        <div>
+                            <p class="font-bold">陳先生</p>
+                            <p class="text-sm text-stone-500">2026 年客戶</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-stone-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">您的毛孩也能成為我們的下一個作品！</h2>
+            <p class="text-stone-300 mb-8 text-lg">預約即將開放全新預約時段</p>
+            <a href="#" class="inline-block bg-[#63e2b7] text-white px-8 py-4 rounded-full font-bold hover:bg-[#52cfa5] transition shadow-lg shadow-[#63e2b7]/30">
+                預約我的毛孩 <i class="fa-solid fa-paw ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <img src="logo.png" class="w-20 mb-6">
+                <p class="text-stone-500 max-w-xs mb-6">給毛孩最溫暖的擁抱，打造最專業的 SPA 空間。我們用心，讓愛延續。</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/HSTPEMKPET/" target="_blank" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center hover:bg-[#63e2b7] hover:text-white transition"><i class="fa-brands fa-line text-lg"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">服務據點</h4>
+                <p class="text-stone-500 text-sm leading-relaxed">台中市南區 123 號<br>週一至週日 10:00 - 20:00<br>預約電話：04-1234567</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">快速連結</h4>
+                <ul class="text-stone-500 text-sm space-y-3">
+                    <li><a href="about.html" class="hover:text-[#63e2b7] transition">關於我們</a></li>
+                    <li><a href="services.html" class="hover:text-[#63e2b7] transition">SPA服務</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#63e2b7] transition">作品展示</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-stone-100 text-center text-stone-400 text-xs">
+            © 2026 PET SPA Premium Services. Design for your love.
+        </div>
+    </footer>
+
+    <div id="scrollTopBtn" class="fixed bottom-6 right-6 z-50 hidden flex items-center justify-center w-14 h-14 rounded-full bg-[#63e2b7] text-white shadow-2xl shadow-[#63e2b7]/25 hover:bg-[#52cfa5] transition duration-300 cursor-pointer" title="回頁首">
+        <i class="fa-solid fa-arrow-up text-xl leading-none"></i>
+    </div>
+
+    <script>
+        // 漢堡選單切換功能
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 點擊菜單項後關閉菜單
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 240) {
+                scrollTopBtn.classList.remove('hidden');
+            } else {
+                scrollTopBtn.classList.add('hidden');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Update button styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-[#63e2b7]', 'text-white');
+                    b.classList.add('bg-stone-100', 'text-stone-700');
+                });
+                btn.classList.add('bg-[#63e2b7]', 'text-white');
+                btn.classList.remove('bg-stone-100', 'text-stone-700');
+
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                        setTimeout(() => { item.style.opacity = '1'; }, 10);
+                    } else {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (itemCategory === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => { item.style.opacity = '1'; }, 10);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
