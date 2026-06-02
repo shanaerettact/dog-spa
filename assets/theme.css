@@ -1,0 +1,56 @@
+:root{
+  --bg: #fcfaf8;
+  --text: #0f1724;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --muted-2: #9ca3af;
+  --accent: #63e2b7;
+}
+html.dark{
+  --bg: #071021;
+  --text: #e6eef6;
+  --muted: #9aa4b2;
+  --card: #0b1220;
+  --muted-2: #94a3b8;
+  --accent: #63e2b7;
+}
+
+/* 基本覆寫以支援 tailwind 原本指定的類別 (使用 !important 以優先) */
+body{ background-color:var(--bg) !important; color:var(--text) !important; }
+.bg-white{ background-color:var(--card) !important; }
+.bg-[#f3fbf9]{ background-color: color-mix(in srgb, var(--card) 85%, #f3fbf9 15%) !important; }
+.bg-stone-900{ background-color:#0b1220 !important; }
+.text-stone-800{ color:var(--text) !important; }
+.text-stone-600{ color:var(--muted) !important; }
+.text-stone-500{ color:var(--muted-2) !important; }
+.text-stone-400{ color:var(--muted-2) !important; }
+.bg-stone-100{ background-color: rgba(255,255,255,0.02) !important; }
+.border-stone-100{ border-color: rgba(255,255,255,0.04) !important; }
+.border-stone-200{ border-color: rgba(255,255,255,0.06) !important; }
+.w-10.h-10.theme-toggle{ border: none; }
+
+/* 切換按鈕小樣式 */
+.theme-toggle{
+
+  width:44px;height:44px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--card);color:var(--accent);border:1px solid rgba(0,0,0,0.06);transition:all .18s;box-shadow:0 8px 20px rgba(16,24,40,0.06);
+}
+.theme-toggle:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(16,24,40,0.08); }
+
+/* 深色模式下按鈕調整 */
+html.dark .theme-toggle{ background:var(--card); border-color:rgba(255,255,255,0.06); color:var(--accent); box-shadow:0 10px 30px rgba(2,6,23,0.6); }
+
+.theme-toggle .theme-icon{ font-size:16px; }
+
+/* 輪播卡片與信任標章調整 */
+.hero-carousel-card{ background-color:var(--card) !important; border-radius:1rem !important; }
+.hero-carousel-card img{ background-color:transparent !important; }
+.hero-trust-card{ background-color:var(--card) !important; color:var(--text) !important; border:1px solid rgba(0,0,0,0.04); }
+
+html.dark .hero-carousel-card{ box-shadow: 0 20px 50px rgba(2,6,23,0.6) !important; }
+html:not(.dark) .hero-carousel-card{ box-shadow: 0 20px 50px rgba(16,24,40,0.08) !important; }
+
+/* 小點點樣式覆寫以配合主題 */
+.dot{ width:10px; height:10px; background-color: rgba(255,255,255,0.6) !important; border-radius:9999px; }
+html.dark .dot{ background-color: rgba(255,255,255,0.12) !important; }
+
